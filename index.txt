@@ -1,0 +1,332 @@
+07.26 6:33 PM
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap');
+
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy-blue: #000080;
+            --dark-bg: #020024;
+            --gold: #FFD700;
+        }
+
+        /* यूनिवर्सल बॉक्स-साइजिंग और ओवरफ्लो को रोकने के लिए सुधार */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark-bg);
+            font-family: 'Tiro Devanagari Hindi', serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-x: hidden; /* क्षैतिज स्क्रॉल को पूरी तरह से रोकता है */
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            height: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-width: 450px; /* अधिकतम चौड़ाई बनाए रखता है */
+            background-image: linear-gradient(180deg, #020024 0%, #090979 35%, #002b54 100%);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 3px solid var(--gold);
+        }
+        
+        .card-container::-webkit-scrollbar { display: none; }
+        .card-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .rain-container,
+        .fireworks-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around; /* बदला हुआ: स्क्रीन की ऊंचाई का बेहतर उपयोग करने के लिए */
+            width: 100%;
+            flex-grow: 1; /* बदला हुआ: यह सुनिश्चित करता है कि सामग्री उपलब्ध स्थान को भर दे */
+            padding-top: 5px;
+        }
+        
+        .top-ad-wrapper, .bottom-ads-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 0;
+            z-index: 5;
+            flex-shrink: 0;
+        }
+
+        .bottom-ads-wrapper {
+            margin-top: 20px;
+            padding-bottom: 15px;
+        }
+        
+        .ad-slot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        .image-container {
+            width: 85%;
+            max-width: 280px;
+            aspect-ratio: 4 / 3;
+            margin-top: 10px;
+            border-radius: 20px;
+            /* 
+                ज़रूरी सूचना: GitHub पर GIF न दिखने पर, सुनिश्चित करें कि '15august.gif' फ़ाइल
+                आपकी 'index.html' फ़ाइल के साथ একই फ़ोल्डर में मौजूद है।
+                नीचे दिए गए path को './15august.gif' में बदल दिया गया है, जो सबसे सही तरीका है।
+            */
+            background-image: url('./15august.gif');
+            background-color: rgba(255, 255, 255, 0.1);
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--gold);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 215, 0, 0.6);
+            flex-shrink: 0;
+        }
+
+        .greeting-text h1 {
+            font-size: 2.5em;
+            color: var(--white);
+            text-align: center;
+            padding: 0 10px;
+            line-height: 1.4;
+            text-shadow: 0 0 5px var(--saffron), 0 0 10px var(--saffron), 0 0 20px #000, 4px 4px 6px #000;
+            margin: 15px 0;
+        }
+
+        .shayari {
+            font-size: 1.2em;
+            color: var(--white);
+            min-height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: opacity 0.5s ease-in-out;
+            padding: 0 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .input-container {
+            margin-top: 15px;
+            width: 80%;
+            text-align: center;
+        }
+
+        #userName {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: 2px solid var(--gold);
+            text-align: center;
+            font-size: 1.2em;
+            font-family: 'Tiro Devanagari Hindi', serif;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--navy-blue);
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        #shareButton {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: 2px solid white;
+            background-image: linear-gradient(to right, var(--saffron), var(--green));
+            color: white;
+            font-size: 1.4em;
+            font-weight: bold;
+            font-family: 'Tiro Devanagari Hindi', serif;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #shareButton:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .flag-corner {
+            position: fixed;
+            font-size: 50px;
+            opacity: 0.9;
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+            animation: pulse-flag 4s ease-in-out infinite;
+            z-index: 10;
+        }
+        .top-left { top: 15px; left: 15px; }
+        .top-right { top: 15px; right: 15px; }
+        .bottom-left { bottom: 15px; left: 15px; }
+        .bottom-right { bottom: 15px; right: 15px; }
+        @keyframes pulse-flag {
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-container">
+        <!-- Background elements -->
+        <div class="fireworks-container"></div>
+        <div class="rain-container"></div>
+        
+        <!-- Corner flags are fixed -->
+        <div class="flag-corner top-left"></div>
+        <div class="flag-corner top-right"></div>
+
+        <!-- Main Content Wrapper -->
+        <div class="content-wrapper">
+
+            <!-- विज्ञापन 1: ऊपरी बैनर -->
+            <div class="top-ad-wrapper">
+                <div class="ad-slot">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key': '0db6e8679b0b6d66810d62ced730c791',
+                            'format': 'iframe',
+                            'height': 50,
+                            'width': 320,
+                            'params': {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/0db6e8679b0b6d66810d62ced730c791/invoke.js"></script>
+                </div>
+            </div>
+            
+            <div class="image-container"></div>
+            <div class="greeting-text">
+                <h1>स्वतंत्रता दिवस की शुभकामनाएँ</h1>
+            </div>
+            <div class="shayari" id="shayari-container"></div>
+            <div class="input-container">
+                <input type="text" id="userName" placeholder="यहाँ अपना नाम लिखें">
+            </div>
+            <button id="shareButton"> WhatsApp पर भेजें</button>
+            
+            <!-- विज्ञापन 2: निचला बैनर -->
+            <div class="bottom-ads-wrapper">
+                <div class="ad-slot">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '0db6e8679b0b6d66810d62ced730c791',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/0db6e8679b0b6d66810d62ced730c791/invoke.js"></script>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="flag-corner bottom-left"></div>
+        <div class="flag-corner bottom-right"></div>
+    </div>
+
+    <!-- ===== पेज की मुख्य जावास्क्रिप्ट ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const shayaris = [
+                "गूंज रहा है दुनिया में हिंदुस्तान का नारा, चमक रहा है आसमान में तिरंगा हमारा।",
+                "दे सलामी इस तिरंगे को जिससे तेरी शान है, सर हमेशा ऊँचा रखना इसका जब तक दिल में जान है।",
+                "कुछ नशा तिरंगे की आन का है, कुछ नशा मातृभूमि की शान का है, हम लहराएंगे हर जगह ये तिरंगा, नशा ये हिंदुस्तान की शान का है।",
+                "आओ झुक कर सलाम करें उनको, जिनके हिस्से में ये मुकाम आता है, खुशनसीब होता है वो खून, जो देश के काम आता है।",
+                "ना सरकार मेरी है, ना रौब मेरा है, मुझे तो बस इस बात का गर्व है कि मैं हिन्दुस्तान का हूँ और हिन्दुस्तान मेरा है।"
+            ];
+
+            let currentShayariIndex = 0;
+            const shayariContainer = document.getElementById('shayari-container');
+            const shareButton = document.getElementById('shareButton');
+            const userNameInput = document.getElementById('userName');
+
+            function changeShayari() {
+                shayariContainer.style.opacity = 0;
+                setTimeout(() => {
+                    currentShayariIndex = (currentShayariIndex + 1) % shayaris.length;
+                    shayariContainer.innerText = shayaris[currentShayariIndex];
+                    shayariContainer.style.opacity = 1;
+                }, 500);
+            }
+
+            if (shayariContainer) {
+                shayariContainer.innerText = shayaris[currentShayariIndex];
+                setInterval(changeShayari, 8000);
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const senderName = urlParams.get('sender');
+            if (senderName) {
+                const welcomeMessage = document.createElement('p');
+                welcomeMessage.innerText = `${decodeURIComponent(senderName)} की तरफ से स्वतंत्रता दिवस की शुभकामनाएँ!`;
+                welcomeMessage.style.cssText = "color: white; text-align: center; font-size: 1em; margin: 10px 0 0 0;";
+                const inputContainer = document.querySelector('.input-container');
+                if (inputContainer) {
+                    inputContainer.prepend(welcomeMessage);
+                }
+            }
+
+            if (shareButton) {
+                shareButton.addEventListener('click', () => {
+                    const userName = userNameInput.value.trim() || "एक दोस्त";
+                    const pageUrl = window.location.href.split('?')[0];
+                    const message = ` *${userName}* की तरफ से आपको और आपके परिवार को स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ! \n\nआइए इस गौरवशाली दिन पर अपने देश को नमन करें। \n\n आप भी अपने नाम से ऐसा ही देशभक्ति वाला शुभकामना कार्ड बनाना चाहते हैं? तो तुरंत नीचे दिए गए नीले लिंक पर क्लिक करें! \n\n${pageUrl}?sender=${encodeURIComponent(userName)}`;
+                    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
+        });
+    </script>
+    
+    <!-- ===== विज्ञापन 3: सोशल बार / पॉप-अप विज्ञापन स्क्रिप्ट ===== -->
+    <script type='text/javascript' src='//pl27213812.profitableratecpm.com/72/16/08/721608d3caf2ad1399fff56ddcc52cc8.js'></script>
+    
+    <!-- ===== नया विज्ञापन स्क्रिप्ट ===== -->
+    <script type='text/javascript' src='//pl27265476.profitableratecpm.com/2f/96/65/2f9665f86b6072d5ecb2b5e4ccc2f9d8.js'></script>
+
+</body>
+
+</html>
