@@ -1,10 +1,9 @@
-07.26 10:27 PM
+07.26 10:33 PM
 <!DOCTYPE html>
 <html lang="hi">
 
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport Setting: यह सुनिश्चित करता है कि पेज डिवाइस की चौड़ाई के अनुसार स्केल हो -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ</title>
     <style>
@@ -29,34 +28,35 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%; /* पूरी व्यूपोर्ट ऊँचाई लेता है */
+            height: 100%; /* Take full viewport height */
             background-color: var(--dark-bg);
             font-family: 'Tiro Devanagari Hindi', serif;
-            display: flex; /* Flexbox का उपयोग सेंटरिंग के लिए */
-            justify-content: center; /* हॉरिज़ॉन्टली सेंटर */
-            align-items: center; /* वर्टिकली सेंटर */
-            overflow: hidden; /* बॉडी को स्क्रॉल होने से रोकता है */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            overflow: hidden; /* Prevent body from scrolling */
         }
 
         .card-container {
             position: relative;
-            width: 100vw; /* व्यूपोर्ट चौड़ाई का 100% लेता है */
-            height: 100vh; /* व्यूपोर्ट ऊँचाई का 100% लेता है */
-            margin: 0; /* कोई मार्जिन नहीं */
+            width: 100%;
+            height: 100%; /* Take full height of its flex parent (body) */
+            max-width: 450px; /* Max width for mobile-like experience */
+            max-height: 850px; /* Max height for the card itself */
             background-image: linear-gradient(180deg, #020024 0%, #090979 35%, #002b54 100%);
-            border-radius: 0; /* फुल स्क्रीन के लिए कोई बॉर्डर रेडियस नहीं */
-            box-shadow: none; /* फुल स्क्रीन के लिए कोई शैडो नहीं */
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 15px; /* पॅडिंग */
-            border: none; /* फुल स्क्रीन के लिए कोई बॉर्डर नहीं */
-            overflow-y: auto; /* यदि सामग्री ओवरफ्लो होती है तो आंतरिक वर्टिकल स्क्रॉलिंग की अनुमति दें */
-            overflow-x: hidden; /* आंतरिक हॉरिज़ॉन्टल स्क्रॉल को रोकें */
+            padding: 15px;
+            border: 3px solid var(--gold);
+            overflow-y: auto; /* Allow internal vertical scrolling if content overflows */
+            overflow-x: hidden; /* Prevent internal horizontal scroll */
         }
         
-        /* स्क्रॉलबार को छिपाएँ */
+        /* Hide scrollbar for a cleaner look */
         .card-container::-webkit-scrollbar { display: none; }
         .card-container { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -66,14 +66,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* सामग्री को वर्टिकली सेंटर करें */
+            justify-content: center; /* Center content vertically */
             width: 100%;
-            flex-grow: 1; /* सामग्री को स्थान भरने दें */
+            flex-grow: 1; /* Allow content to grow and fill space */
             padding-top: 5px;
-            padding-bottom: 5px; /* सामग्री के नीचे कुछ पैडिंग जोड़ें */
+            padding-bottom: 5px; /* Add some padding at the bottom of content */
         }
         
-        /* विज्ञापन रैपर स्टाइल */
+        /* Ad Wrapper Styles */
         .top-ad-wrapper, .bottom-ads-wrapper {
             width: 100%;
             display: flex;
@@ -81,7 +81,7 @@
             align-items: center;
             padding: 5px 0;
             z-index: 5;
-            flex-shrink: 0; /* सिकुड़ने से रोकें */
+            flex-shrink: 0; /* Prevent shrinking */
         }
 
         .bottom-ads-wrapper {
@@ -93,8 +93,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 100%; /* सुनिश्चित करें कि विज्ञापन स्लॉट ओवरफ्लो न हो */
-            overflow: hidden; /* विज्ञापन सामग्री से किसी भी ओवरफ्लो को छिपाएँ */
+            max-width: 100%; /* Ensure ad slot doesn't overflow */
+            overflow: hidden; /* Hide any overflow from ad content */
         }
 
         .image-container {
@@ -103,8 +103,8 @@
             aspect-ratio: 4 / 3;
             margin-top: 10px;
             border-radius: 20px;
-            /* सुनिश्चित करें कि यह पाथ आपकी index.html के सापेक्ष सही है */
-            background-image: url('https://placehold.co/280x210/FF9933/FFFFFF?text=Independence+Day+GIF'); /* Placeholder image for 15august.gif */
+            /* Ensure this path is correct relative to your index.html */
+            background-image: url('15august.gif'); 
             background-color: rgba(255, 255, 255, 0.1);
             background-size: cover;
             background-position: center;
@@ -160,7 +160,7 @@
             margin-bottom: 10px;
             padding: 12px 30px;
             border-radius: 25px;
-            border: 2px solid white; /* आउटलाइन स्टाइल */
+            border: 2px solid white;
             background-image: linear-gradient(to right, var(--saffron), var(--green));
             color: white;
             font-size: 1.4em;
@@ -168,7 +168,7 @@
             font-family: 'Tiro Devanagari Hindi', serif;
             cursor: pointer;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s; /* क्लिक पर हल्की ऐनिमेशन */
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         #shareButton:hover {
@@ -177,7 +177,7 @@
         }
 
         .flag-corner {
-            position: fixed; /* झंडों को व्यूपोर्ट के सापेक्ष स्थिर रखें */
+            position: fixed; /* Keep flags fixed relative to viewport */
             font-size: 50px;
             opacity: 0.9;
             filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
@@ -192,11 +192,10 @@
             50% { transform: scale(1.1) rotate(5deg); }
         }
 
-        /* मीडिया क्वेरीज़: मोबाइल, टैबलेट और डेस्कटॉप के लिए लेआउट */
-        /* छोटे मोबाइल स्क्रीन के लिए */
+        /* Media Queries for smaller screens if needed (though current setup is robust) */
         @media (max-width: 360px) {
             .greeting-text h1 {
-                font-size: 2em; /* बहुत छोटी स्क्रीन पर थोड़ा छोटा */
+                font-size: 2em; /* Slightly smaller on very small screens */
             }
             .shayari {
                 font-size: 1.1em;
@@ -206,39 +205,17 @@
                 padding: 10px 20px;
             }
         }
-
-        /* टैबलेट और छोटे डेस्कटॉप के लिए (उदाहरण के लिए 768px तक) */
-        @media (min-width: 361px) and (max-width: 768px) {
-            /* .card-container के लिए कोई विशिष्ट चौड़ाई/ऊंचाई नियम नहीं, यह 100vw/100vh रहेगा */
-            .greeting-text h1 {
-                font-size: 2.8em;
-            }
-            .shayari {
-                font-size: 1.3em;
-            }
-        }
-
-        /* बड़े डेस्कटॉप स्क्रीन के लिए */
-        @media (min-width: 769px) {
-            /* .card-container के लिए कोई विशिष्ट चौड़ाई/ऊंचाई नियम नहीं, यह 100vw/100vh रहेगा */
-            .greeting-text h1 {
-                font-size: 3em;
-            }
-            .shayari {
-                font-size: 1.4em;
-            }
-        }
     </style>
 </head>
 
 <body>
 
     <div class="card-container">
-        <!-- कॉर्नर फ्लैग स्थिर हैं -->
+        <!-- Corner flags are fixed -->
         <div class="flag-corner top-left"></div>
         <div class="flag-corner top-right"></div>
 
-        <!-- मुख्य सामग्री रैपर -->
+        <!-- Main Content Wrapper -->
         <div class="content-wrapper">
 
             <!-- विज्ञापन 1: ऊपरी बैनर -->
@@ -289,13 +266,13 @@
         <div class="flag-corner bottom-right"></div>
     </div>
 
-    <!-- विज्ञापन 3: सोशल बार / पॉप-अप विज्ञापन स्क्रिप्ट -->
+    <!-- ===== विज्ञापन 3: सोशल बार / पॉप-अप विज्ञापन स्क्रिप्ट ===== -->
     <script type='text/javascript' src='//pl27213812.profitableratecpm.com/72/16/08/721608d3caf2ad1399fff56ddcc52cc8.js'></script>
     
-    <!-- नया विज्ञापन स्क्रिप्ट -->
+    <!-- ===== नया विज्ञापन स्क्रिप्ट ===== -->
     <script type='text/javascript' src='//pl27265476.profitableratecpm.com/2f/96/65/2f9665f86b6072d5ecb2b5e4ccc2f9d8.js'></script>
 
-    <!-- पेज की मुख्य जावास्क्रिप्ट -->
+    <!-- ===== पेज की मुख्य जावास्क्रिप्ट ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const shayaris = [
@@ -341,8 +318,7 @@
                 shareButton.addEventListener('click', () => {
                     const userName = userNameInput.value.trim() || "एक दोस्त";
                     const pageUrl = window.location.href.split('?')[0];
-                    const message = ` *${userName}* की तरफ से आपको और आपके परिवार को स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ! \n\nआइए इस गौरवशाली दिन पर अपने देश को नमन करें। \n\n आप भी अपने नाम से ऐसा ही देशभक्ति वाला शुभकामना कार्ड बनाना चाहते 
-हैं? तो तुरंत नीचे दिए गए नीले लिंक पर क्लिक करें! \n\n${pageUrl}?sender=${encodeURIComponent(userName)}`;
+                    const message = ` *${userName}* की तरफ से आपको और आपके परिवार को स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ! \n\nआइए इस गौरवशाली दिन पर अपने देश को नमन करें। \n\n आप भी अपने नाम से ऐसा ही देशभक्ति वाला शुभकामना कार्ड बनाना चाहते हैं? तो तुरंत नीचे दिए गए नीले लिंक पर क्लिक करें! \n\n${pageUrl}?sender=${encodeURIComponent(userName)}`;
                     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
                 });
@@ -352,4 +328,3 @@
 </body>
 
 </html>
-
